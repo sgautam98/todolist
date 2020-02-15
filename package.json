@@ -8,11 +8,25 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
-    "request": "^2.88.0"
+    "joi": "^14.3.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.8.12",
+    "request": "^2.88.2",
+    "sequelize": "^5.21.4"
   },
   "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgautam98/todolist.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sgautam98/todolist/issues"
+  },
+  "homepage": "https://github.com/sgautam98/todolist#readme",
+  "keywords": [],
   "description": ""
 }
