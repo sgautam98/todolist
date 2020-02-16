@@ -2,7 +2,6 @@ const express =require("express");
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const _ =require("lodash");
-// console.log(date);
 
 const app = express();
 app.set("view engine", "ejs");
@@ -53,7 +52,6 @@ app.get("/", function(req, res){
   });
 
 app.get("/:customListName", function(req, res){
-  // res.send(req.params);
   const customListName = _.capitalize(req.params.customListName);
 
   List.findOne({name: customListName}, function(err,foundList){
@@ -66,12 +64,10 @@ app.get("/:customListName", function(req, res){
           });
         list.save();
       }else{
-        console.log('error');
          res.render("list", {listTitle: foundList.name, newListItems: foundList.items});
       }
     }
   });
-
 });
 
 app.post("/", function(req,res){
@@ -80,7 +76,6 @@ app.post("/", function(req,res){
   const item = new Item({
     name: itemName
   });
-
   if(listName === "Today"){
     item.save();
     res.redirect("/");
@@ -91,9 +86,8 @@ app.post("/", function(req,res){
       res.redirect("/"+listName);
     });
   }
-
-
 });
+
 app.post("/delete", function(req, res){
     const checkedItemId = req.body.checkbox;
     const listName = req.body.listName;
@@ -115,19 +109,6 @@ app.post("/delete", function(req, res){
 
 });
 });
-
-
-
-// app.get("/about", function(req, res){
-//   res.render("about");
-// });
-
-// app.post("/work", function(req, res){
-//   const item = req.body.newItem;
-//   workItems.push(item);
-//   res.redirect("/work");
-// });
-
 
 let port = process.env.PORT;
 if (port == null || port == "") {
